@@ -19,7 +19,9 @@ public class Echiquier {
     String mouvement;
  
  
- 
+    /**
+     * 
+     */
     public Echiquier() {
  
         initialisationDeLaGrille(echiquier);
@@ -27,12 +29,18 @@ public class Echiquier {
  
     }
  
- 
+    /**
+     * 
+     * @return
+     */
     public Boolean getJeu() {
         return this.Jeu;
     }
  
- 
+    /**
+     * 
+     * @param echiquier
+     */
     private static void initialisationDeLaGrille(Piece[][] echiquier) {
         // un échiquier avec une matrice 8x8 de pièces
         // les lignes [0] et [1] sont noires
@@ -93,7 +101,9 @@ public class Echiquier {
         }
     }
  
- 
+    /**
+     * 
+     */
     public void grille() {
          
     	// si le joueur est blanc
@@ -139,7 +149,11 @@ public class Echiquier {
     	}
     }
  
- 
+    /**
+     * 
+     * @param Echec
+     * @return
+     */
     private boolean mouvementValide(boolean Echec) {
  
         // On verifie que le chemin ne sort pas de l'échiquier
@@ -230,6 +244,10 @@ public class Echiquier {
         return true;
     }
  
+    /**
+     * 
+     * @return
+     */
     public boolean echec() {
         //Piece ROI;
         ArrayList<Position> positions = new ArrayList<Position>();
@@ -268,6 +286,9 @@ public class Echiquier {
     }
  
  
+    /**
+     * 
+     */
     public void deplacer() {
     	
         if (MouvementIncorrect) {
