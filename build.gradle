@@ -1,0 +1,111 @@
+plugins {
+	id 'org.springframework.boot' version '2.2.4.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id 'java'
+    id 'eclipse'
+    id 'jacoco'
+    id 'checkstyle'
+    id "com.github.spotbugs" version "3.0.0"
+    id 'pmd'
+    id 'de.aaschmid.cpd' version '3.1'
+}
+
+group = 'com.tactfactory.monprojet'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	runtimeOnly 'mysql:mysql-connector-java'
+	testImplementation('org.springframework.boot:spring-boot-starter-test')
+}
+
+test {
+	useJUnitPlatform()
+    ignoreFailures = true
+}
+    
+def classesJava = "${project.buildDir}/classes/java/main/"
+def javasRoot = "${rootProject.rootDir}/src/main/java"
+def testClassesJava = "${project.buildDir}/classes/java/test"
+def testJavaRoot = "${rootProject.rootDir}/src/test/java"
+
+def javaRootFB = "${javasRoot}/com/tactfactory/algotojava"
+def classesJavaFB = "${classesJava}/com/tactfactory/algotojava"
+
+checkstyle {
+    toolVersion = "6.3"
+}
+
+task checkstyleMain (type: Checkstyle, overwrite: true) {
+    ignoreFailures = true
+    showViolations = false
+    source fileTree('src/main/java')
+    include '**/*.java'
+    exclude '**/gen/**'
+    exclude '**/R.java'
+    exclude '**/BuildConfig.java'
+    reports {
+        //xml.destination "$project.buildDir/reports/checkstyle/main.xml"
+    }
+    classpath = fileTree(classesJava)
+    configFile = file("${rootProject.rootDir}/checkstyle.xml")
+}
+
+task checkstyleTest (type: Checkstyle, overwrite: true){
+    ignoreFailures = true
+    showViolations = false
+    source fileTree('src/test/java')
+    include '**/*.java'
+    exclude '**/gen/**'
+    exclude '**/R.java'
+    exclude '**/BuildConfig.java'
+    reports {
+        //xml.destination "$project.buildDir/reports/checkstyle/test.xml"
+    }
+    classpath = fileTree("$project.buildDir/classes/test/")
+    configFile = file("${rootProject.rootDir}/checkstyle.xml")
+}
+
+task pmdMain(type: Pmd, overwrite: true) {
+    ignoreFailures = true
+    description 'Runs PMD inspection against Android sourcesets.'
+    group = 'Code Quality'
+    ruleSetFiles = files("${rootProject.rootDir}/pmd_rules.xml")
+    source = fileTree(javasRoot)
+    include '**/*.java'
+    exclude '**/gen/**'
+
+    reports {
+        xml.enabled = true
+        html.enabled = false
+    }
+}
+
+task pmdTest(type: Pmd, overwrite: true) {
+    ignoreFailures = true
+    description 'Runs PMD inspection against Android sourcesets.'
+    group = 'Code Quality'
+    ruleSetFiles = files("${rootProject.rootDir}/pmd_rules.xml")
+    source = fileTree(testJavaRoot)
+    include '**/*.java'
+    exclude '**/gen/**'
+
+    reports {
+        xml.enabled = true
+        html.enabled = false
+    }
+}
+
+cpdCheck {
+    reports {
+        text.enabled = true
+        xml.enabled = true
+    }
+    source = sourceSets.main.allJava // only java, groovy and scala classes in 'main' sourceSets
+    minimumTokenCount = 50
+}
