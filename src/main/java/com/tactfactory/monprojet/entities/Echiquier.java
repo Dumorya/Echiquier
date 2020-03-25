@@ -12,10 +12,10 @@ public class Echiquier {
     Scanner user_input = new Scanner(System.in);
     private static int departLigne, departColonne, arriveeLigne, arriveColonne;
     private static Boolean TourDuJoueur;
-    // Définit sur true si movement est invalide. Demande de nouveau l'utilisateur dans move ()
-    // méthode.
+    // DÃ©finit sur true si movement est invalide. Demande de nouveau l'utilisateur dans move ()
+    // mÃ©thode.
     private static Boolean MouvementIncorrect = false;
-    // Contient une chaîne avec l'entrée de l'utilisateur pour les instructions de déplacement
+    // Contient une chaÃ®ne avec l'entrÃ©e de l'utilisateur pour les instructions dÃ©placement
     String mouvement;
  
  
@@ -42,11 +42,11 @@ public class Echiquier {
      * @param echiquier
      */
     private static void initialisationDeLaGrille(Piece[][] echiquier) {
-        // un échiquier avec une matrice 8x8 de pièces
+        // un Ã©chiquier avec une matrice 8x8 de piÃ¨ces
         // les lignes [0] et [1] sont noires
         // les lignes [6] et [7] sont blanches
     	
-    	// Affecte aléatoirement qui commence en premier (noir ou blanc)
+    	// Affecte alÃ©atoirement qui commence en premier (noir ou blanc)
         Random rand = new Random();
         TourDuJoueur = rand.nextBoolean();
          
@@ -156,13 +156,13 @@ public class Echiquier {
      */
     private boolean mouvementValide(boolean Echec) {
  
-        // On verifie que le chemin ne sort pas de l'échiquier
+        // On verifie que le chemin ne sort pas de l'Ã©chiquier
         if (departLigne < 0 || departLigne > 7 || departColonne < 0 || departColonne > 7 || arriveeLigne < 0 || arriveeLigne > 7 || arriveeLigne < 0 || arriveColonne > 7) {
             System.out.println("Le mouvement est en dehors de l'echiquier");
             return false;
         }
  
-        // On vérifie que l'origine n'est pas null
+        // On vÃ©rifie que l'origine n'est pas null
         if (echiquier[departLigne][departColonne] == null) {
             System.err.println("L'origine est vide");
             return false;
@@ -176,16 +176,16 @@ public class Echiquier {
             return false;
         }
  
-        // On verifie que les déplacement spécifique de la pièces sont bien respectés
+        // On verifie que les dÃ©placements spÃ©cifiques de la piÃ¨ce sont bien respectÃ©s
         if (!echiquier[departLigne][departColonne].deplacementValide(departLigne, departColonne, arriveeLigne,arriveColonne)) {
             if(Echec == false) {
-                System.err.println("Cette pièce ne bouge pas comme ça");
+                System.err.println("Cette piÃ¨ce ne bouge pas comme Ã§a");
             }
             return false;
         }
  
-        // cette déclaration arrête la déclaration pour vérifier si le blanc atterit
-        // blanc de l'exécution estBlanc() sur un espace null
+        // cette dÃ©claration arrÃªte la dÃ©claration pour vÃ©rifier si le blanc atterit
+        // blanc de l'execution estBlanc() sur un espace null
         if (echiquier[arriveeLigne][arriveColonne] == null) {          
             //Chemin pas possible si une piece veut sauter une autre piece SAUF POUR LE CAVALIER
             if(!(echiquier[departLigne][departColonne] instanceof Cavalier)) {
@@ -292,7 +292,7 @@ public class Echiquier {
     public void deplacer() {
     	
         if (MouvementIncorrect) {
-            System.err.println("Le mouvement n'est pas valide. Veuillez réessayer :");
+            System.err.println("Le mouvement n'est pas valide. Veuillez rï¿½essayer :");
             MouvementIncorrect = false;
         } else if (TourDuJoueur) {
             System.out.println( "\nLe joueur BLANC doit jouer\n");
@@ -304,15 +304,15 @@ public class Echiquier {
  
         // convertir en minuscules
         String lowerCase = mouvement.toLowerCase();
-        // analyse la chaîne de déplacement en composants
+        // analyse la chaï¿½ne de dÃ©placement en composants
         String[] components = lowerCase.split(" ");
  
-        // si vous supposez que le déplacement est "e1 à e5" alors
+        // si vous supposez que le dÃ©placement est "e1 e5" alors
         // composants [0] .chartAt (0) = 'e'
         // composants [0] .charAt (1) = '1'
  
-        // utilisez des chars dans les composants pour définir les coordonnées du tableau
-        // déplace l'origine et déplace la destination
+        // utilisez des chars dans les composants pour dÃ©finir les coordonnÃ©es du tableau
+        // deplace l'origine et deplace la destination
  
         departLigne = 7 - (components[0].charAt(1) - '1');
         departColonne = components[0].charAt(0) - 'a';
@@ -320,7 +320,7 @@ public class Echiquier {
         arriveColonne = components[1].charAt(0) - 'a';
  
         if (mouvementValide(false)) {
-            // mettre une pièce dans la destination
+            // mettre une piï¿½ce dans la destination
             echiquier[arriveeLigne][arriveColonne] = echiquier[departLigne][departColonne];
             // vide l'origine du mouvement
             echiquier[departLigne][departColonne] = null;

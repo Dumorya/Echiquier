@@ -7,7 +7,7 @@ plugins {
     id 'checkstyle'
     id "com.github.spotbugs" version "3.0.0"
     id 'pmd'
-    id 'de.aaschmid.cpd' version '3.1'
+    //id 'de.aaschmid.cpd' version '3.1'
 }
 
 group = 'com.tactfactory.monprojet'
