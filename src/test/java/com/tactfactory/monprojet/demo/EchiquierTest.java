@@ -17,12 +17,10 @@ import com.tactfactory.monprojet.entities.Tour;
 
 public class EchiquierTest {
 	
-	private Boolean Jeu;
     private Piece[][] echiquier = new Piece[8][8];
-    Scanner user_input = new Scanner(System.in);
-    private static int departLigne, departColonne, arriveeLigne, arriveColonne;
-    private static Boolean TourDuJoueur;
-    private static Boolean MouvementIncorrect = false;
+    private int departLigne, departColonne, arriveeLigne, arriveColonne;
+    private Boolean TourDuJoueur = false;
+    private Boolean MouvementIncorrect = false;
     String mouvement;
     
     @Test
@@ -32,7 +30,7 @@ public class EchiquierTest {
     }
     
     @Test
-    private static void initialisationDeLaGrille(Piece[][] echiquier) {
+    public void initialisationDeLaGrille() {
     	
     	assertNotNull(TourDuJoueur);
     	assertNotNull(echiquier);
@@ -54,7 +52,7 @@ public class EchiquierTest {
     }
     
     @Test
-    private boolean mouvementValide(boolean Echec) {
+    public void mouvementValide() {
     	 
     	assertNotNull(departLigne);
     	assertNotNull(departColonne);
@@ -64,7 +62,6 @@ public class EchiquierTest {
     	assertNotNull(TourDuJoueur);
     	assertNotNull(new Cavalier(false));
     	assertNotNull(new Cavalier(true));
-         
-        return true;
+    	
     }
 }

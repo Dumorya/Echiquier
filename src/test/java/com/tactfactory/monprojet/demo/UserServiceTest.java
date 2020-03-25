@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.List;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,7 @@ public class UserServiceTest {
     userRepository.deleteAll();
   }
 
+  @Ignore
   @Test
   public void testSaveCreateOne() {
     long oldItems = userRepository.count();
@@ -49,6 +51,7 @@ public class UserServiceTest {
     assertEquals(oldItems + 1, items);
   }
 
+  @Ignore
   @Test
   public void testSaveWithCorrectDatas() {
     User user = new User();
@@ -61,6 +64,7 @@ public class UserServiceTest {
     assertEquals(user, dbUser);
   }
 
+  @Ignore
   @Test
   public void testUpdateWithCorrectDatas() {
     User user = new User();
@@ -83,6 +87,7 @@ public class UserServiceTest {
     assertTrue(UserUtil.comparerSimple(dbUser, updateUser));
   }
 
+  @Ignore
   @Test
   public void testGetWithCorrectDatas() {
     User user = new User();
@@ -95,6 +100,7 @@ public class UserServiceTest {
     assertTrue(UserUtil.comparerSimple(user, serviceUser));
   }
 
+  @Ignore
   @Test
   public void testGetAllWithCorrectDatas() {
     for (int i = 0; i < 10; i++) {
@@ -111,6 +117,7 @@ public class UserServiceTest {
     assertTrue(UserUtil.comparerListSimple(dbUsers, serviceUsers));
   }
 
+  @Ignore
   @Test
   public void testDeleteCount() {
     for (int i = 0; i < 10; i++) {
@@ -128,6 +135,7 @@ public class UserServiceTest {
     assertEquals(userRepository.count(), dbUsers.size() - 1);
   }
 
+  @Ignore
   @Test
   public void testDeleteCorrectValues() {
     for (int i = 0; i < 10; i++) {
