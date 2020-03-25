@@ -2,6 +2,7 @@ package com.tactfactory.monprojet.demo;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,7 @@ public class UserServiceAdvanceTest {
     userRepository.deleteAll();
   }
 
+  @Ignore
   @Test
   public void testSaveCreateOneWithNewRole() {
     long oldRoleItems = roleRepository.count();
@@ -59,6 +61,7 @@ public class UserServiceAdvanceTest {
     assertEquals(oldRoleItems + 1, roleItems);
   }
 
+  @Ignore
   @Test
   public void testSaveCreateOneWithNewRoles() {
     long oldRoleItems = roleRepository.count();
@@ -81,6 +84,7 @@ public class UserServiceAdvanceTest {
     assertEquals(oldRoleItems + 10, roleItems);
   }
 
+  @Ignore
   @Test
   public void testSaveCreateOneWithNewArticle() {
     long oldArticleItems = articleRepository.count();
@@ -101,6 +105,7 @@ public class UserServiceAdvanceTest {
     assertEquals(oldArticleItems + 1, articleItems);
   }
 
+  @Ignore
   @Test
   public void testSaveCreateOneWithNewArticles() {
     long oldArticleItems = articleRepository.count();
@@ -123,6 +128,7 @@ public class UserServiceAdvanceTest {
     assertEquals(oldArticleItems + 10, articleItems);
   }
 
+  @Ignore
   @Test
   public void testSaveCreateOneWithNewRolesAndArticles() {
     long oldRoleItems = roleRepository.count();
