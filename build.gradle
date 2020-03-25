@@ -101,7 +101,7 @@ task pmdTest(type: Pmd, overwrite: true) {
     }
 }
 
-cpdCheck {
+/*cpdCheck {
     reports {
         text.enabled = true
         xml.enabled = true
@@ -109,4 +109,4 @@ cpdCheck {
     source = sourceSets.main.allJava // only java, groovy and scala classes in 'main' sourceSets
     minimumTokenCount = 50
     ignoreFailures = true
-}
+}*/
