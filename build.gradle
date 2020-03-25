@@ -110,3 +110,7 @@ task pmdTest(type: Pmd, overwrite: true) {
     minimumTokenCount = 50
     ignoreFailures = true
 }*/
+
+spotbugs {
+	ignoreFailures = true
+}
