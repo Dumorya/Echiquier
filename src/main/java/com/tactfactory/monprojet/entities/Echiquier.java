@@ -42,109 +42,55 @@ public class Echiquier {
         Random rand = new Random();
         TourDuJoueur = rand.nextBoolean();
          
-    	// si le joueur est blanc
-    	if(TourDuJoueur){
-	        for (int ligne = 0; ligne < echiquier.length; ligne++) {
-	            for (int colonne = 0; colonne < echiquier[ligne].length; colonne++) {
-	                if (ligne == 0) {
-	                    switch (colonne) {
-		                    case 0: echiquier[ligne][colonne] = new Tour(false);
-		                    	break;
-		                    case 1: echiquier[ligne][colonne] = new Cavalier(false);
-		                    	break;
-		                    case 2: echiquier[ligne][colonne] = new Fou(false);
-		                    	break;
-		                    case 3: echiquier[ligne][colonne] = new Reine(false);
-		                    	break;
-		                    case 4: echiquier[ligne][colonne] = new Roi(false);
-		                    	break;
-		                    case 5: echiquier[ligne][colonne] = new Fou(false);
-		                    	break;
-		                    case 6: echiquier[ligne][colonne] = new Cavalier(false);
-		                    	break;
-		                    case 7: echiquier[ligne][colonne] = new Tour(false);
-		                    	break;
-	                    }
-	                } else if (ligne == 1) {
-	                    echiquier[ligne][colonne] = new Pion(false);
-	                } else if (ligne == 6) {
-	                    echiquier[ligne][colonne] = new Pion(true);
-	                } else if (ligne == 7) {
-	                    switch (colonne) {
-		                    case 0: echiquier[ligne][colonne] = new Tour(true);
-		                    	break;
-		                    case 1: echiquier[ligne][colonne] = new Cavalier(true);
-		                    	break;
-		                    case 2: echiquier[ligne][colonne] = new Fou(true);
-		                    	break;
-		                    case 3: echiquier[ligne][colonne] = new Reine(true);
-		                    	break;
-		                    case 4: echiquier[ligne][colonne] = new Roi(true);
-		                    	break;
-		                    case 5: echiquier[ligne][colonne] = new Fou(true);
-		                    	break;
-		                    case 6: echiquier[ligne][colonne] = new Cavalier(true);
-		                    	break;
-		                    case 7: echiquier[ligne][colonne] = new Tour(true);
-		                    	break;
-	                    }
-	                } else {
-	                    echiquier[ligne][colonne] = null;
-	                }
-	            }
-	        }
-    	} else {
-    		for (int ligne = 0; ligne < echiquier.length; ligne++) {
-	            for (int colonne = 0; colonne < echiquier[ligne].length; colonne++) {
-	                if (ligne == 0) {
-	                    switch (colonne) {
-		                    case 0: echiquier[ligne][colonne] = new Tour(true);
-		                    	break;
-		                    case 1: echiquier[ligne][colonne] = new Cavalier(true);
-		                    	break;
-		                    case 2: echiquier[ligne][colonne] = new Fou(true);
-		                    	break;
-		                    case 3: echiquier[ligne][colonne] = new Reine(true);
-		                    	break;
-		                    case 4: echiquier[ligne][colonne] = new Roi(true);
-		                    	break;
-		                    case 5: echiquier[ligne][colonne] = new Fou(true);
-		                    	break;
-		                    case 6: echiquier[ligne][colonne] = new Cavalier(true);
-		                    	break;
-		                    case 7: echiquier[ligne][colonne] = new Tour(true);
-		                    	break;
-	                    }
-	                } else if (ligne == 1) {
-	                    echiquier[ligne][colonne] = new Pion(true);
-	                } else if (ligne == 6) {
-	                    echiquier[ligne][colonne] = new Pion(false);
-	                } else if (ligne == 7) {
-	                    switch (colonne) {
-		                    case 0: echiquier[ligne][colonne] = new Tour(false);
-		                    	break;
-		                    case 1: echiquier[ligne][colonne] = new Cavalier(false);
-		                    	break;
-		                    case 2: echiquier[ligne][colonne] = new Fou(false);
-		                    	break;
-		                    case 3: echiquier[ligne][colonne] = new Reine(false);
-		                    	break;
-		                    case 4: echiquier[ligne][colonne] = new Roi(false);
-		                    	break;
-		                    case 5: echiquier[ligne][colonne] = new Fou(false);
-		                    	break;
-		                    case 6: echiquier[ligne][colonne] = new Cavalier(false);
-		                    	break;
-		                    case 7: echiquier[ligne][colonne] = new Tour(false);
-		                    	break;
-	                    }
-	                } else {
-	                    echiquier[ligne][colonne] = null;
-	                }
-	            }
-	        }
-    	}
- 
+        for (int ligne = 0; ligne < echiquier.length; ligne++) {
+            for (int colonne = 0; colonne < echiquier[ligne].length; colonne++) {
+                if (ligne == 0) {
+                    switch (colonne) {
+	                    case 0: echiquier[ligne][colonne] = new Tour(false);
+	                    	break;
+	                    case 1: echiquier[ligne][colonne] = new Cavalier(false);
+	                    	break;
+	                    case 2: echiquier[ligne][colonne] = new Fou(false);
+	                    	break;
+	                    case 3: echiquier[ligne][colonne] = new Reine(false);
+	                    	break;
+	                    case 4: echiquier[ligne][colonne] = new Roi(false);
+	                    	break;
+	                    case 5: echiquier[ligne][colonne] = new Fou(false);
+	                    	break;
+	                    case 6: echiquier[ligne][colonne] = new Cavalier(false);
+	                    	break;
+	                    case 7: echiquier[ligne][colonne] = new Tour(false);
+	                    	break;
+                    }
+                } else if (ligne == 1) {
+                    echiquier[ligne][colonne] = new Pion(false);
+                } else if (ligne == 6) {
+                    echiquier[ligne][colonne] = new Pion(true);
+                } else if (ligne == 7) {
+                    switch (colonne) {
+	                    case 0: echiquier[ligne][colonne] = new Tour(true);
+	                    	break;
+	                    case 1: echiquier[ligne][colonne] = new Cavalier(true);
+	                    	break;
+	                    case 2: echiquier[ligne][colonne] = new Fou(true);
+	                    	break;
+	                    case 3: echiquier[ligne][colonne] = new Reine(true);
+	                    	break;
+	                    case 4: echiquier[ligne][colonne] = new Roi(true);
+	                    	break;
+	                    case 5: echiquier[ligne][colonne] = new Fou(true);
+	                    	break;
+	                    case 6: echiquier[ligne][colonne] = new Cavalier(true);
+	                    	break;
+	                    case 7: echiquier[ligne][colonne] = new Tour(true);
+	                    	break;
+                    }
+                } else {
+                    echiquier[ligne][colonne] = null;
+                }
+            }
+        }
     }
  
  
@@ -162,18 +108,15 @@ public class Echiquier {
                     if (echiquier[ligne][colonne] != null) {
                         echiquier[ligne][colonne].dessiner();
                         System.out.print("\t");
-                    }
-                    else {
-                        System.out.print("\t");
-                             
+                    } else {
+                        System.out.print("\t"); 
                     }
                 }
                 System.out.println();
             }
             System.out.println("------------------------------------------------------------------");
             
-    	}
-    	else{
+    	} else{
     		
             System.out.println("------------------------------------------------------------------");
             for (int ligne = 0 ; ligne < echiquier.length ; ligne++) {
@@ -199,7 +142,7 @@ public class Echiquier {
  
     private boolean mouvementValide(boolean Echec) {
  
-        // On verifie que le chemin ne sort pas de l'échequier
+        // On verifie que le chemin ne sort pas de l'échiquier
         if (departLigne < 0 || departLigne > 7 || departColonne < 0 || departColonne > 7 || arriveeLigne < 0 || arriveeLigne > 7 || arriveeLigne < 0 || arriveColonne > 7) {
             System.out.println("Le mouvement est en dehors de l'echiquier");
             return false;
@@ -213,15 +156,17 @@ public class Echiquier {
  
         // On verifie que c'est bien le tour du joueur pour qu'il joue
         if ((echiquier[departLigne][departColonne].estBlanc && !TourDuJoueur) || (!echiquier[departLigne][departColonne].estBlanc && TourDuJoueur)) {
-            if(Echec == false) 
-            System.err.println("Ce n'est pas votre tour");
+            if(Echec == false) {
+                System.err.println("Ce n'est pas votre tour");
+            }
             return false;
         }
  
         // On verifie que les déplacement spécifique de la pièces sont bien respectés
         if (!echiquier[departLigne][departColonne].deplacementValide(departLigne, departColonne, arriveeLigne,arriveColonne)) {
-            if(Echec == false) 
+            if(Echec == false) {
                 System.err.println("Cette pièce ne bouge pas comme ça");
+            }
             return false;
         }
  
@@ -229,17 +174,34 @@ public class Echiquier {
         // blanc de l'exécution estBlanc() sur un espace null
         if (echiquier[arriveeLigne][arriveColonne] == null) {          
             //Chemin pas possible si une piece veut sauter une autre piece SAUF POUR LE CAVALIER
-            if(!(echiquier[departLigne][departColonne] instanceof Cavalier)){
+            if(!(echiquier[departLigne][departColonne] instanceof Cavalier)) {
                 int deplaceX = 0, deplaceY = 0;
-                if(departLigne < arriveeLigne) deplaceX = 1; else if(departLigne > arriveeLigne)deplaceX = -1;
-                if(departColonne < arriveColonne) deplaceY = 1; else if(departColonne > arriveColonne) deplaceY = -1;
+                if(departLigne < arriveeLigne) {
+                	deplaceX = 1;
+                } else if (departLigne > arriveeLigne) {
+                	deplaceX = -1;
+                }
+                
+                if(departColonne < arriveColonne) {
+                	deplaceY = 1;
+                } else if (departColonne > arriveColonne) {
+                	deplaceY = -1;
+                }
  
-                int i = departLigne, j = departColonne;
-                while(i != arriveeLigne || j != arriveColonne){
-                    if(i != arriveeLigne) i+= deplaceX;
-                    if(j != arriveColonne) j+= deplaceY;
+                int i = departLigne; 
+                int j = departColonne;
+                
+                while(i != arriveeLigne || j != arriveColonne) {
+                	
+                    if(i != arriveeLigne) {
+                    	i += deplaceX;
+                	}
+                    
+                    if(j != arriveColonne) {
+                		j += deplaceY;
+                	}
  
-                    if(echiquier[i][j] != null){
+                    if(echiquier[i][j] != null) {
                         System.err.println("Cette piece ne peut pas sauter un pion");
                         return false;
                     }
@@ -268,9 +230,9 @@ public class Echiquier {
         return true;
     }
  
-    public boolean echec(){
+    public boolean echec() {
         //Piece ROI;
-        ArrayList<Position> P = new ArrayList<Position>();
+        ArrayList<Position> positions = new ArrayList<Position>();
         boolean joueur_adverse = TourDuJoueur;
         boolean joueur_courant = !TourDuJoueur;
         //On recherche la position du ROI
@@ -291,33 +253,33 @@ public class Echiquier {
                         departColonne = colonne;
                          
                         if(mouvementValide(true)){
-                        	P.add(new Position(departLigne, departColonne, arriveeLigne, arriveColonne));
+                        	positions.add(new Position(departLigne, departColonne, arriveeLigne, arriveColonne));
                             System.out.println(departLigne + "" + departColonne);
                         }
                     }      
             }
         }
-        if(P.isEmpty())
+        
+        if(positions.isEmpty()){
             return false;
-        else
+        } else {
             return true;
+        }
     }
  
  
     public void deplacer() {
+    	
         if (MouvementIncorrect) {
             System.err.println("Le mouvement n'est pas valide. Veuillez réessayer :");
             MouvementIncorrect = false;
-        }
- 
-        else if (TourDuJoueur) {
+        } else if (TourDuJoueur) {
             System.out.println( "\nLe joueur BLANC doit jouer\n");
         } else {
             System.out.println("\nLe joueur NOIR doit jouer\n");
         }
  
         mouvement = user_input.nextLine();
-         
  
         // convertir en minuscules
         String lowerCase = mouvement.toLowerCase();
@@ -344,18 +306,13 @@ public class Echiquier {
             if(echec() == true)
             {System.out.println("\n ECHEC !\n");}
             TourDuJoueur = !TourDuJoueur;
-             
-                 
-        }
-        else {
+        } else {
             MouvementIncorrect = true;
             mouvementValide(false);
-            if(echec() == true)
-            {System.out.println("\n ECHEC !\n");}
-             
- 
+            if(echec() == true){
+            	System.out.println("\n ECHEC !\n");
+            }
         }
- 
     }
  
 }
