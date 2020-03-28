@@ -20,7 +20,7 @@ public class UserUtil {
   public static boolean comparerListSimple(List<User> dbUsers, List<User> serviceUsers) {
     boolean result = true;
 
-    for (int i = 0; i < dbUsers.size(); i++) {
+    for (int i = 0 ; i < dbUsers.size() ; i++) {
       if (!comparerSimple(dbUsers.get(i), serviceUsers.get(i))) {
         result = false;
       }
