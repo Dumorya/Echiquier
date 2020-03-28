@@ -23,6 +23,7 @@ public class EchiquierTest {
     private Boolean TourDuJoueur = false;
     private Boolean MouvementIncorrect = false;
     
+    @Test
     public void getJeu() {
     	assertNotNull(jeu);
     }
@@ -62,7 +63,7 @@ public class EchiquierTest {
     	assertNotNull(departColonne);
     	assertNotNull(arriveeLigne);
     	assertNotNull(arriveColonne);
-    	assertNotNull(echiquier[departLigne][departColonne]);
+    	//assertNotNull(echiquier[departLigne][departColonne]);
     	assertNotNull(TourDuJoueur);
     	assertNotNull(new Cavalier(false));
     	assertNotNull(new Cavalier(true));
