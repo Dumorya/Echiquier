@@ -2,8 +2,7 @@ package com.tactfactory.monprojet.demo;
 
 import static org.junit.Assert.assertNotNull;
 
-import java.util.Random;
-import java.util.Scanner;
+import java.util.ArrayList;
 
 import org.junit.Test;
 
@@ -11,17 +10,22 @@ import com.tactfactory.monprojet.entities.Cavalier;
 import com.tactfactory.monprojet.entities.Fou;
 import com.tactfactory.monprojet.entities.Piece;
 import com.tactfactory.monprojet.entities.Pion;
+import com.tactfactory.monprojet.entities.Position;
 import com.tactfactory.monprojet.entities.Reine;
 import com.tactfactory.monprojet.entities.Roi;
 import com.tactfactory.monprojet.entities.Tour;
 
 public class EchiquierTest {
 	
+	private Boolean jeu = false;
     private Piece[][] echiquier = new Piece[8][8];
     private int departLigne, departColonne, arriveeLigne, arriveColonne;
     private Boolean TourDuJoueur = false;
     private Boolean MouvementIncorrect = false;
-    String mouvement;
+    
+    public void getJeu() {
+    	assertNotNull(jeu);
+    }
     
     @Test
 	public void grille() {
@@ -63,5 +67,19 @@ public class EchiquierTest {
     	assertNotNull(new Cavalier(false));
     	assertNotNull(new Cavalier(true));
     	
+    }
+    
+    @Test
+    public void echec() {
+        //Piece ROI;
+    	assertNotNull(new ArrayList<Position>());
+    	assertNotNull(TourDuJoueur);
+    	assertNotNull(new Roi(false));
+    }
+    
+    @Test
+    public void deplacer() {
+    	assertNotNull(MouvementIncorrect);
+    	assertNotNull(TourDuJoueur);
     }
 }

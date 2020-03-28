@@ -7,7 +7,7 @@ import java.util.Scanner;
  
 public class Echiquier {
  
-    private Boolean Jeu;
+	private Boolean jeu;
     private Piece[][] echiquier = new Piece[8][8];
     Scanner user_input = new Scanner(System.in);
     private static int departLigne, departColonne, arriveeLigne, arriveColonne;
@@ -25,7 +25,7 @@ public class Echiquier {
     public Echiquier() {
  
         initialisationDeLaGrille(echiquier);
-        Jeu = true;
+        jeu = true;
  
     }
  
@@ -33,8 +33,8 @@ public class Echiquier {
      * 
      * @return
      */
-    public Boolean getJeu() {
-        return this.Jeu;
+    public Boolean getjeu() {
+        return this.jeu;
     }
  
     /**
@@ -189,7 +189,9 @@ public class Echiquier {
         if (echiquier[arriveeLigne][arriveColonne] == null) {          
             //Chemin pas possible si une piece veut sauter une autre piece SAUF POUR LE CAVALIER
             if(!(echiquier[departLigne][departColonne] instanceof Cavalier)) {
-                int deplaceX = 0, deplaceY = 0;
+                int deplaceX = 0;
+                int deplaceY = 0;
+                
                 if(departLigne < arriveeLigne) {
                 	deplaceX = 1;
                 } else if (departLigne > arriveeLigne) {
@@ -224,7 +226,7 @@ public class Echiquier {
             return true;
         }
          
-        if(echiquier[departLigne][departColonne] instanceof Pion && (arriveeLigne == arriveColonne) && this.echiquier[arriveeLigne][arriveColonne] == null ){
+        if(echiquier[departLigne][departColonne] instanceof Pion && (arriveeLigne == arriveColonne) && this.echiquier[arriveeLigne][arriveColonne] == null ) {
             System.out.println("Ne peut pas se deplacer en diagonale");
             return false;
         }
@@ -253,18 +255,19 @@ public class Echiquier {
         ArrayList<Position> positions = new ArrayList<Position>();
         boolean joueur_adverse = TourDuJoueur;
         boolean joueur_courant = !TourDuJoueur;
+        
         //On recherche la position du ROI
-        for(int ligne=0 ; ligne < 8 ; ligne++){
-            for(int colonne=0; colonne<8; colonne++){
+        for(int ligne = 0 ; ligne < 8 ; ligne++) {
+            for(int colonne = 0; colonne < 8; colonne++) {
                 if(this.echiquier[ligne][colonne] != null  && this.echiquier[ligne][colonne].estBlanc == TourDuJoueur && this.echiquier[ligne][colonne] instanceof Roi){
-                    //ROI = this.echiquier[ligne][colonne];
                     arriveeLigne = ligne;
                     arriveColonne = colonne;  
                 }
             }
         }
-        for(int ligne = 0 ; ligne < 8 ; ligne++){
-            for(int colonne = 0 ; colonne < 8 ; colonne++){
+        
+        for(int ligne = 0 ; ligne < 8 ; ligne++) {
+            for(int colonne = 0 ; colonne < 8 ; colonne++) {
                     if(this.echiquier[ligne][colonne] != null && this.echiquier[ligne][colonne].estBlanc == !TourDuJoueur)
                     {
                         departLigne = ligne;
@@ -278,7 +281,7 @@ public class Echiquier {
             }
         }
         
-        if(positions.isEmpty()){
+        if(positions.isEmpty()) {
             return false;
         } else {
             return true;
