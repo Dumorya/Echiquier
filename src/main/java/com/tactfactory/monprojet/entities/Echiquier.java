@@ -33,7 +33,7 @@ public class Echiquier {
      * 
      * @return
      */
-    public Boolean getjeu() {
+    public Boolean getJeu() {
         return this.jeu;
     }
  
