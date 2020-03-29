@@ -1,7 +1,7 @@
 package com.tactfactory.monprojet.entities;
 
 public class Tour extends Piece {
-	
+		
 	/**
 	 * 
 	 * @param estBlanc
