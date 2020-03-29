@@ -37,7 +37,7 @@ test {
 
 //Checkstyle
 checkstyle {
-    toolVersion = "7.6.1"
+    toolVersion = "6.3"
     ignoreFailures = true
     showViolations = false
     checkstyleTest.enabled = false
