@@ -11,8 +11,8 @@ public abstract class Piece {
     public Piece(boolean estBlanc) {
         this.estBlanc = estBlanc;
     }
-    
-    /**
+
+	/**
      * 
      * @return
      */

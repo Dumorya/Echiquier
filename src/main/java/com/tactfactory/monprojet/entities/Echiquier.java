@@ -1,6 +1,5 @@
 package com.tactfactory.monprojet.entities;
 
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -17,16 +16,23 @@ public class Echiquier {
     private static Boolean MouvementIncorrect = false;
     // Contient une chaîne avec l'entrée de l'utilisateur pour les instructions déplacement
     String mouvement;
- 
+    Cote coteBlanc;
+    Cote coteNoir;
  
     /**
-     * 
+     * initialisation de la grille
      */
     public Echiquier() {
- 
-        initialisationDeLaGrille(echiquier);
         jeu = true;
- 
+        
+        // Affecte aléatoirement qui commence en premier (noir ou blanc)
+        Random rand = new Random();
+        TourDuJoueur = rand.nextBoolean();
+        
+        this.coteBlanc = new Cote(true);
+        this.coteNoir = new Cote(false);
+        echiquier = this.coteBlanc.setEchiquier(echiquier);
+        echiquier = this.coteNoir.setEchiquier(echiquier);
     }
  
     /**
@@ -39,75 +45,11 @@ public class Echiquier {
  
     /**
      * 
-     * @param echiquier
-     */
-    private static void initialisationDeLaGrille(Piece[][] echiquier) {
-        // un échiquier avec une matrice 8x8 de pièces
-        // les lignes [0] et [1] sont noires
-        // les lignes [6] et [7] sont blanches
-    	
-    	// Affecte aléatoirement qui commence en premier (noir ou blanc)
-        Random rand = new Random();
-        TourDuJoueur = rand.nextBoolean();
-         
-        for (int ligne = 0; ligne < echiquier.length; ligne++) {
-            for (int colonne = 0; colonne < echiquier[ligne].length; colonne++) {
-                if (ligne == 0) {
-                    switch (colonne) {
-	                    case 0: echiquier[ligne][colonne] = new Tour(false);
-	                    	break;
-	                    case 1: echiquier[ligne][colonne] = new Cavalier(false);
-	                    	break;
-	                    case 2: echiquier[ligne][colonne] = new Fou(false);
-	                    	break;
-	                    case 3: echiquier[ligne][colonne] = new Reine(false);
-	                    	break;
-	                    case 4: echiquier[ligne][colonne] = new Roi(false);
-	                    	break;
-	                    case 5: echiquier[ligne][colonne] = new Fou(false);
-	                    	break;
-	                    case 6: echiquier[ligne][colonne] = new Cavalier(false);
-	                    	break;
-	                    case 7: echiquier[ligne][colonne] = new Tour(false);
-	                    	break;
-                    }
-                } else if (ligne == 1) {
-                    echiquier[ligne][colonne] = new Pion(false);
-                } else if (ligne == 6) {
-                    echiquier[ligne][colonne] = new Pion(true);
-                } else if (ligne == 7) {
-                    switch (colonne) {
-	                    case 0: echiquier[ligne][colonne] = new Tour(true);
-	                    	break;
-	                    case 1: echiquier[ligne][colonne] = new Cavalier(true);
-	                    	break;
-	                    case 2: echiquier[ligne][colonne] = new Fou(true);
-	                    	break;
-	                    case 3: echiquier[ligne][colonne] = new Reine(true);
-	                    	break;
-	                    case 4: echiquier[ligne][colonne] = new Roi(true);
-	                    	break;
-	                    case 5: echiquier[ligne][colonne] = new Fou(true);
-	                    	break;
-	                    case 6: echiquier[ligne][colonne] = new Cavalier(true);
-	                    	break;
-	                    case 7: echiquier[ligne][colonne] = new Tour(true);
-	                    	break;
-                    }
-                } else {
-                    echiquier[ligne][colonne] = null;
-                }
-            }
-        }
-    }
- 
-    /**
-     * 
      */
     public void grille() {
          
     	// si le joueur est blanc
-    	if(TourDuJoueur){
+    	//if(TourDuJoueur){
     		
     		System.out.println("\tA\tB\tC\tD\tE\tF\tG\tH");
             System.out.println("------------------------------------------------------------------");
@@ -126,7 +68,7 @@ public class Echiquier {
             }
             System.out.println("------------------------------------------------------------------");
             
-    	} else{
+    	/*} else{
     		
             System.out.println("------------------------------------------------------------------");
             for (int ligne = 0 ; ligne < echiquier.length ; ligne++) {
@@ -146,7 +88,7 @@ public class Echiquier {
             System.out.println();
             System.out.println("------------------------------------------------------------------");
             System.out.println("A\tB\tC\tD\tE\tF\tG\tH");
-    	}
+    	}*/
     }
  
     /**
